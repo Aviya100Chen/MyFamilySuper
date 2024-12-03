@@ -13,11 +13,11 @@
         <EditText
             android:id="@+id/editTextText2"
             android:layout_width="match_parent"
-            android:layout_height="160sp"
+            android:layout_height="40sp"
             android:inputType="text"
             android:text="הכנס שם משתמש:"
             android:textColor="#9C27B0"
-            android:textSize="80sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -27,12 +27,12 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="609dp"
+            android:layout_width="418dp"
+            android:layout_height="170dp"
             android:background="#5DE1E6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
@@ -41,49 +41,50 @@
         <TextView
             android:id="@+id/title1"
             android:layout_width="0dp"
-            android:layout_height="425dp"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-light"
             android:text="ברוך.ה הבא.ה "
             android:textAlignment="center"
             android:textColor="#673AB7"
-            android:textSize="120sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.089" />
 
-        <TextView
-            android:id="@+id/title2"
-            android:layout_width="0dp"
-            android:layout_height="372dp"
-            android:text="לסופר המשפחתי שלך"
-            android:textAlignment="center"
-            android:textColor="#673AB7"
-            android:textSize="120sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.088" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="לסופר המשפחתי שלך"
+            android:textAlignment="center"
+            android:textColor="#673AB7"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title1"
-            app:layout_constraintVertical_bias="0.078" />
+            app:layout_constraintVertical_bias="0.039" />
 
         <Button
             android:id="@+id/button_signup"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="wrap_content"
             android:text="למסך הרשמה"
-            android:textSize="80sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_V"
-            app:layout_constraintVertical_bias="0.462" />
+            app:layout_constraintVertical_bias="0.283" />
 
         <EditText
             android:id="@+id/editTextText5"
@@ -92,27 +93,27 @@
             android:ems="10"
             android:text="הכנס סיסמא משפחתית:"
             android:textColor="#9C27B0"
-            android:textSize="80sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextText2"
-            app:layout_constraintVertical_bias="0.089" />
+            app:layout_constraintVertical_bias="0.162" />
 
         <Button
             android:id="@+id/button_V"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="אישור"
-            android:textSize="80sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextText5"
-            app:layout_constraintVertical_bias="0.433" />
+            app:layout_constraintVertical_bias="0.419" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
