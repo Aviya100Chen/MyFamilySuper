@@ -19,17 +19,6 @@ public class products extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-
-
-            class ProductsActivity extends AppCompatActivity {
-                @Override
-                protected void onCreate(Bundle savedInstanceState) {
-                    super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_products);
-                }
-            }
-
         });
     }
 }
