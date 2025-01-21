@@ -30,7 +30,7 @@ public class Start_Screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // מעבר למסך בשם products
-                Intent intent = new Intent(Start_Screen.this, products.class);
+                Intent intent = new Intent(Start_Screen.this, ProductsActivity.class);
                 startActivity(intent);
             }
         });

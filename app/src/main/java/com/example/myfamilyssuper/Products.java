@@ -1,3 +1,5 @@
+package com.example.myfamilyssuper;
+
 public class Products {
     private String category;
     private String image;
