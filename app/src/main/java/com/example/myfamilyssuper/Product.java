@@ -1,19 +1,19 @@
 package com.example.myfamilyssuper;
 
-public class Products {
+public class Product {
     private String category;
     private String image;
     private String name;
     private int price;
 
-    public Products(String category, String image, String name, int price){
+    public Product(String category, String image, String name, int price){
         this.category=category;
         this.image=image;
         this.name=name;
         this.price=price;
     }
 
-    public Products(){
+    public Product(){
 
     }
     public String getCategory(){

@@ -39,7 +39,6 @@ public class list_products extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
 
-
     }
 }
 
