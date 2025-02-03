@@ -8,6 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import java.util.ArrayList;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,9 +26,9 @@ public class list_products extends AppCompatActivity {
         });
 
 
-        ArrayList<Products> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
-            products.add(new Products("מלפפון" + i,
+            products.add(new Product("מלפפון" + i,
                     "ירקות ופירות",
                     "8.4" + (i % 6),
                     i
@@ -35,8 +36,11 @@ public class list_products extends AppCompatActivity {
         }
 
         RecyclerView recyclerView= findViewById(R.id.recyclerView_products);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this);
+       // RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager( this,2);
         recyclerView.setLayoutManager(layoutManager);
+        ProductAdapter productAdapter = new ProductAdapter(products);
+        recyclerView.setAdapter(productAdapter);
 
 
     }

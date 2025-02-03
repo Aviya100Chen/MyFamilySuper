@@ -1,6 +1,8 @@
 package com.example.myfamilyssuper;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,19 @@ public class LogInScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Button buttonSignIn = (Button)findViewById(R.id.button_V);
+        buttonSignIn.setOnClickListener(view -> {
+            Intent i = new Intent(this,Start_Screen.class);
+            startActivity(i);
+        });
+
+        Button buttonRegister = (Button)findViewById(R.id.button_signup);
+        buttonRegister.setOnClickListener(view -> {
+            Intent i = new Intent(this,sign_up_screen.class);
+            startActivity(i);
+        });
+
+
     }
 }

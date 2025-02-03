@@ -1,5 +1,6 @@
 package com.example.myfamilyssuper;
 
+import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+       View productview= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_products, parent, false);
+        return new ProductViewHolder(productview);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-
-    }
+    Product currentProduct = products.get(position);
+    holder.categoryTextView.setText((currentProduct.getName()));
+    //holder.imageImageView.setImageResource(holder.nameTextView.getResources().
+       //     getIdentifier(currentProduct.getImage(), "drawable",
+               //     holder.nameTextView.getContext().getPackageName()));
+    holder.nameTextView.setText(currentProduct.getName());
+    holder.priceTextView.setText(currentProduct.getName());
+   }
 
     @Override
     public int getItemCount() {
