@@ -29,12 +29,11 @@ public class LogInScreen extends AppCompatActivity {
             startActivity(i);
         });
 
-        Button buttonRegister = (Button)findViewById(R.id.button_signup);
-        buttonRegister.setOnClickListener(view -> {
+        Button buttonSignUp = (Button)findViewById(R.id.button_signup);
+        buttonSignUp.setOnClickListener(view -> {
             Intent i = new Intent(this,sign_up_screen.class);
             startActivity(i);
         });
-
 
     }
 }

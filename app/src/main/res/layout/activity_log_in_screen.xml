@@ -98,7 +98,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title2"
-            app:layout_constraintVertical_bias="0.883" />
+            app:layout_constraintVertical_bias="0.402" />
 
         <EditText
             android:id="@+id/editTextText"
@@ -108,10 +108,10 @@
             android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/button_V"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title2"
-            app:layout_constraintVertical_bias="0.313" />
+            app:layout_constraintVertical_bias="0.304" />
 
         <TextView
             android:id="@+id/textView5"

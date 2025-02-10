@@ -23,8 +23,5 @@ public class sign_up_screen extends AppCompatActivity {
             return insets;
         });
 
-        // כאן נעשה המעבר Activity במקום בתוך הListener
-        Intent intent = new Intent(sign_up_screen.this, LogInScreen.class);
-        startActivity(intent);
     }
 }
