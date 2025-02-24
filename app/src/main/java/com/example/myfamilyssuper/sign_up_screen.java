@@ -12,6 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class sign_up_screen extends AppCompatActivity {
 
     @Override
@@ -80,41 +83,50 @@ public class sign_up_screen extends AppCompatActivity {
                 });
             }
 
-            // פונקציה לאימות אימייל תקני
-            private boolean isValidEmail(String email) {
-                return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-            }
-
-    // פונקציה לאימות תאריך לידה תקני
+    // פונקציה לאימות תאריך הלידה
     private boolean isValidBirthdate(String birthdate) {
+        // תאריך הלידה בתצורת DD/MM/YYYY
+        String[] parts = birthdate.split("/");
+
+        if (parts.length != 3) {
+            return false;
+        }
+
         try {
-            // נפרק את התאריך בפורמט של יום/חודש/שנה
-            String[] dateParts = birthdate.split("/");
-            if (dateParts.length != 3) {
+            int day = Integer.parseInt(parts[0]);
+            int month = Integer.parseInt(parts[1]);
+            int year = Integer.parseInt(parts[2]);
+
+            // קבלת התאריך הנוכחי
+            Calendar calendar = Calendar.getInstance();
+            int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+            int currentMonth = calendar.get(Calendar.MONTH) + 1; // החודש הוא בין 0 ל-11
+            int currentYear = calendar.get(Calendar.YEAR);
+
+            // בדיקה אם התאריך תקין
+            if (day < 1 || day > 31 || month < 1 || month > 12 || year > 2025 || year < 1900) {
                 return false;
             }
 
-            int day = Integer.parseInt(dateParts[0]);
-            int month = Integer.parseInt(dateParts[1]);
-            int year = Integer.parseInt(dateParts[2]);
-
-            // בדיקות לאימות התאריך
-            if (day > 1 || day <= 31) {
-                return false;
-            }
-
-            if (month > 1 || month <= 12) {
-                return false;
-            }
-
-            if (year < 2025) {
+            // בדיקה אם התאריך נמצא בעבר
+            if (year > currentYear || (year == currentYear && month > currentMonth) ||
+                    (year == currentYear && month == currentMonth && day > currentDay)) {
                 return false;
             }
 
             return true;
-
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             return false;
         }
     }
+
+    // פונקציה לאימות אימייל תקני
+    private boolean isValidEmail(String email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+}
+            
+
+
+
 }
