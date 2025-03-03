@@ -1,7 +1,6 @@
 package com.example.myfamilyssuper;
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -52,10 +51,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
        public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           categoryTextView = itemView.findViewById(R.id.textView_category);
+           categoryTextView = itemView.findViewById(R.id.textView_category_1);
           //// imageImageView = itemView.findViewById(R.id.imageView_image);
-           nameTextView = itemView.findViewById(R.id.textView_name);
-           priceTextView = itemView.findViewById(R.id.textView_price);
+           nameTextView = itemView.findViewById(R.id.textView_name_1);
+           priceTextView = itemView.findViewById(R.id.textView_price_1);
 
 
 
