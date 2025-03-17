@@ -124,5 +124,24 @@ public class sign_up_screen extends AppCompatActivity {
     private boolean isValidEmail(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
+    Button backButton = findViewById(R.id.back_button);
+
+backButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // יצירת אינטנט למעבר למסך log_in_screen
+            Intent intent = new Intent(CurrentActivity.this, LogInScreen.class);
+            startActivity(intent);
+        }
+    });
+
+
+
+
+});
+
+
+
 };
 
