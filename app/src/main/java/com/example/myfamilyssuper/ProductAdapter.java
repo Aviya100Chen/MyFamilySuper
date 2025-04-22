@@ -28,12 +28,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
     Product currentProduct = products.get(position);
-    holder.categoryTextView.setText((currentProduct.getName()));
+    holder.categoryTextView.setText((currentProduct.getCategory()));
     //holder.imageImageView.setImageResource(holder.nameTextView.getResources().
        //     getIdentifier(currentProduct.getImage(), "drawable",
                //     holder.nameTextView.getContext().getPackageName()));
     holder.nameTextView.setText(currentProduct.getName());
-    holder.priceTextView.setText(currentProduct.getName());
+    holder.priceTextView.setText(Integer.toString(currentProduct.getPrice()));
    }
 
     @Override
@@ -51,10 +51,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
        public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           categoryTextView = itemView.findViewById(R.id.textView_category_1);
+           categoryTextView = itemView.findViewById(R.id.textView_category_2);
           //// imageImageView = itemView.findViewById(R.id.imageView_image);
-           nameTextView = itemView.findViewById(R.id.textView_name_1);
-           priceTextView = itemView.findViewById(R.id.textView_price_1);
+           nameTextView = itemView.findViewById(R.id.textView_name_2);
+           priceTextView = itemView.findViewById(R.id.textView_price_2);
 
 
 

@@ -3,6 +3,7 @@ package com.example.myfamilyssuper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,6 +36,14 @@ public class sign_up_screen extends AppCompatActivity {
                 EditText birthdateEditText = findViewById(R.id.editTextDate); // תאריך לידה
                 EditText passwordEditText = findViewById(R.id.editTextTextPassword); // סיסמה משפחתית
                 Button signUpButton = findViewById(R.id.button); // כפתור הרשמה
+                Button backButton = findViewById(R.id.back_button); // הכפתור ב-XML
+
+                backButton.setOnClickListener(view -> {
+                    // יצירת אינטנט למעבר למסך הבא
+                    Intent intent = new Intent(sign_up_screen.this,LogInScreen.class);
+                    startActivity(intent);
+                });
+
 
                 // אימות נתונים בעת לחיצה על כפתור ההרשמה
                 signUpButton.setOnClickListener(v -> {
@@ -81,7 +90,10 @@ public class sign_up_screen extends AppCompatActivity {
                     Intent intent = new Intent(sign_up_screen.this, LogInScreen.class); // להחליף ל-Activity הבא
                     startActivity(intent);
                 });
-            }
+
+
+
+    }
 
     // פונקציה לאימות תאריך הלידה
     private boolean isValidBirthdate(String birthdate) {
@@ -125,23 +137,7 @@ public class sign_up_screen extends AppCompatActivity {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    Button backButton = findViewById(R.id.back_button);
 
-backButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            // יצירת אינטנט למעבר למסך log_in_screen
-            Intent intent = new Intent(CurrentActivity.this, LogInScreen.class);
-            startActivity(intent);
-        }
-    });
+}
 
-
-
-
-});
-
-
-
-};
 
