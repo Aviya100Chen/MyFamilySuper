@@ -6,6 +6,7 @@ import static java.sql.DriverManager.println;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -62,8 +63,10 @@ public class list_products extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         RecyclerView recyclerView= findViewById(R.id.recyclerView_products);
-        //  RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager( this,2);
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this);
         recyclerView.setLayoutManager(layoutManager);
         productAdapter = new ProductAdapter(products);
         recyclerView.setAdapter(productAdapter);
@@ -108,6 +111,8 @@ public class list_products extends AppCompatActivity {
                                 products.add(product);
                             }
                         }
+                        // Notify the adapter that the data has changed
+                        productAdapter.notifyDataSetChanged();
                         callback.onSuccess(products);
                     }
                 })
