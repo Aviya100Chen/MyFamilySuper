@@ -33,8 +33,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
        //     getIdentifier(currentProduct.getImage(), "drawable",
                //     holder.nameTextView.getContext().getPackageName()));
     holder.nameTextView.setText(currentProduct.getName());
-    holder.priceTextView.setText(Integer.toString(currentProduct.getPrice()));
-   }
+    holder.priceTextView.setText(Double.toString(currentProduct.getPrice()));
+    }
 
     @Override
     public int getItemCount() {
