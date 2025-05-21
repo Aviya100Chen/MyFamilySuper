@@ -2,10 +2,11 @@ package com.example.myfamilyssuper;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,77 +15,66 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LogInScreen extends AppCompatActivity {
 
     EditText usernameEditText, passwordEditText;
-    Button loginButton;
+    Button loginButton, buttonSignIn, buttonSignUp;
 
     FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        usernameEditText = findViewById(R.id.username1);
-        passwordEditText = findViewById(R.id.password1);
-        loginButton = findViewById(R.id.loginButton);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = usernameEditText.getText().toString().trim();
-                String password = passwordEditText.getText().toString().trim();
-
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "שם המשתמש והסיסמא שגויים. נסה שנית", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                // המשך למסך הבא
-                                Intent intent = new Intent(LoginActivity.this, NextActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(LoginActivity.this, "שם המשתמש והסיסמא שגויים. נסה שנית", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
-    }
-
-public class LogInScreen extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_log_in_screen);
+
+        // התאמה לגודל מסך
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Button buttonSignIn = (Button)findViewById(R.id.button_V);
+        // חיבור ל- Firebase
+        mAuth = FirebaseAuth.getInstance();
+
+        // קישור בין הקוד לאלמנטים ב-XML
+        usernameEditText = findViewById(R.id.username1);
+        passwordEditText = findViewById(R.id.password1);
+        buttonSignIn = findViewById(R.id.button_V);
+        buttonSignUp = findViewById(R.id.button_signup);
+
+        // לחצן התחברות עם אימות
         buttonSignIn.setOnClickListener(view -> {
-            Intent i = new Intent(this,Start_Screen.class);
-            startActivity(i);
+            String username = usernameEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LogInScreen.this, "שם המשתמש והסיסמא שגויים. נסה שנית", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mAuth.signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent i = new Intent(this, Start_Screen.class);
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Toast.makeText(LogInScreen.this, "שם המשתמש והסיסמא שגויים. נסה שנית", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
 
-        Button buttonSignUp = (Button)findViewById(R.id.button_signup);
+
+
+        // מעבר למסך הרשמה
         buttonSignUp.setOnClickListener(view -> {
-            Intent i = new Intent(this,sign_up_screen.class);
+            Intent i = new Intent(this, sign_up_screen.class);
             startActivity(i);
         });
-
     }
 }
-

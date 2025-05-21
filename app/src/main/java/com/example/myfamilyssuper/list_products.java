@@ -32,7 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class list_products extends AppCompatActivity {
     private static final String TAG = "GetProductData";
-    private static final String COLLECTION_NAME = "Prodcuts";
+    private static final String COLLECTION_NAME = "Products";
     private static final String DOCUMENT_ID = "2C5VncQZvZBMSuIPXht6";
     private ArrayList<Product> products = new ArrayList<Product>();
     private ProductAdapter productAdapter;

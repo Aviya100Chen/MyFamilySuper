@@ -4,9 +4,9 @@ public class Product {
     private String category;
     private String image;
     private String name;
-    private int price;
+    private double price;
 
-    public Product(String category, String image, String name, int price){
+    public Product(String category, String image, String name, double price){
         this.category=category;
         this.image=image;
         this.name=name;
@@ -25,7 +25,7 @@ public class Product {
     public String getName(){
         return name;
     }
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
 
@@ -38,7 +38,7 @@ public class Product {
     public void setName(String name){
         this.name=name;
     }
-    public void setPrice(int price){
+    public void setPrice(double price){
         this.price=price;
     }
 }
